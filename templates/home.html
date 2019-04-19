@@ -1,0 +1,62 @@
+{% extends "layout.html" %} {% block content %}
+
+<form action="{{ url_for('home') }}" class="box" method="post">
+  <div class="form">
+    <h3>Classify Text</h3>
+    <textarea
+      class="form-control"
+      id="text"
+      name="text"
+      placeholder="Paste text here to classify"
+      required
+      autocomplete="off"
+      rows="6"
+    ></textarea>
+    <table align="center">
+      <tr>
+        <td><input type="submit" class="btn" value="classify" /></td>
+        <td>
+          <a href="{{ url_for('about') }}">
+            <button
+              style=" border: 2px solid #455a64;
+          background: none;
+          text-align: center;
+          height: 50px;
+          width: 50px;
+          color: white;
+          border-radius: 25px;
+          transition: 0.25s;
+          cursor: pointer;"
+              type="button"
+              class="bt"
+              onmouseover="bgC(this)"
+              onmouseout="bgNone(this)"
+              onfocusout="myFunction()"
+              id="txt"
+            >
+              <i class="fa fa-info"></i>
+            </button>
+          </a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</form>
+
+<script>
+  function bgNone(x) {
+    x.style.background = "none";
+  }
+
+  function bgC(x) {
+    x.style.background = "#455a64";
+  }
+
+  function myFunction() {
+    var txt = document.getElementById("txt");
+    if (40 < txt.innerHTML.length) {
+      txt.style.width = "80%";
+    }
+  }
+</script>
+{% endblock content %}

@@ -1,0 +1,53 @@
+{% extends "layout.html" %} {% block content %}
+
+<form action="index.html" class="box" method="post">
+  <div class="form">
+    <ul>
+      {%for cat, value in results%}
+      <h2 style="color:white;text-align: left;">{{ cat }}</h2>
+      <div
+        class="progress"
+        value="{{ value }}%"
+        id="{{ cat }}"
+        style=" display: flex;
+      align-items: center;
+      position: relative;
+      color: white;
+      width: 2%;
+      max-width: calc(100% - 1em);
+      background-color: #069;
+      border-radius: 1em;
+      padding: 5px;
+      font-size: 12px;
+      "
+      >
+        {{ value }}
+      </div>
+      {%endfor%}
+    </ul>
+  </div>
+</form>
+<script>
+  myMove("entertainment");
+  myMove("business");
+  myMove("sport");
+  myMove("tech");
+  myMove("politics");
+  function myMove(x) {
+    var elem = document.getElementById(x);
+    var pos = 2;
+    var id = setInterval(frame, 20);
+    var value = elem.innerHTML;
+    console.log(value);
+    elem.innerHTML = elem.innerHTML + "%";
+    function frame() {
+      if (pos > Number(value)) {
+        clearInterval(id);
+      } else {
+        pos++;
+        elem.style.width = pos + "%";
+      }
+    }
+  }
+</script>
+{% endblock content %}

@@ -1,0 +1,12 @@
+.progress {
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: white;
+  width: attr(value);
+  min-width: 2rem;
+  max-width: calc(100% - 1em);
+  background-color: #069;
+  border-radius: 1em;
+  padding: 5px;
+}
